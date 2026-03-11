@@ -161,6 +161,7 @@ dat_lmf <- list(ns = ns,
 fit_lm <- stan(file = "fullcovarmatrix.stan", pars = "phi", 
                iter = 5000,
                data = dat_lmf, seed = 26)
+
 traceplot(fit_lm, pars = "phi")
 
 post_lm <- extract(fit_lm, pars = "phi")$phi
