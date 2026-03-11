@@ -158,8 +158,9 @@ dat_lmf <- list(ns = ns,
                 prior_sd = sqrt(1/0.0001))
 
 # Synthesize q-learning results
-fit_lm <- stan(file = "fullcovarmatrix.stan", pars = "phi", iter = 5000,
-               data = dat_lmf)
+fit_lm <- stan(file = "fullcovarmatrix.stan", pars = "phi", 
+               iter = 5000,
+               data = dat_lmf, seed = 26)
 traceplot(fit_lm, pars = "phi")
 
 post_lm <- extract(fit_lm, pars = "phi")$phi
@@ -250,12 +251,12 @@ pat0 <- rank_indiv(imat = individ,
 pat1 <- rank_indiv(imat = ind2, 
                    trtmat = trts, blippars = blippars, post_lm = post_lm)
 
-pA <-pat0$plot+coord_cartesian(ylim = c(0,0.2))+
+pA <-pat0$plot+coord_cartesian(ylim = c(0,0.2), xlim = c(-18,18))+
   labs(title = "Patient A", x = "Expected Outcome vs. Sertraline")+
   theme_bw() +
   theme(legend.text = element_text(size = 11),
         legend.title = element_text(size = 12))
-pB<- pat1$plot+coord_cartesian(ylim = c(0,0.2)) + 
+pB<- pat1$plot+coord_cartesian(ylim = c(0,0.2), xlim = c(-18,18)) + 
   labs(title = "Patient B", x = "Expected Outcome vs. Sertraline") +
   theme_bw()
 
