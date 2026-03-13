@@ -1,5 +1,7 @@
 # Personalized Treatment Hierarchies in Bayesian Network Meta-Analysis
 
+[![DOI](https://zenodo.org/badge/1098516236.svg)](https://doi.org/10.5281/zenodo.19007228)
+
 This repo contains the code and data needed to reproduce the results in the article. 
 The individual participant data from STAR*D, EMBARC, and REVAMP studies are confidential and can not be shared. Instead, point estimates of the study-level parameters and their covariances are available in .csv files.
 This repository contains the following files:
